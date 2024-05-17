@@ -10,6 +10,7 @@ const connection = mysql.createConnection({
 });
 
 app.get("/user", (req, res) => {
+  //important comment
   const id = req.query.id;
   const query = `SELECT * FROM users WHERE id = ${id}`;
   connection.query(query, (error, results) => {
@@ -18,7 +19,9 @@ app.get("/user", (req, res) => {
     }
     res.send(results);
   });
+
 });
+
 
 app.listen(3000, () => {
   console.log("Example app listening on port 3000!");
